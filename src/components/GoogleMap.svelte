@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Maps, initMaps } from '$lib';
+	import { initMap } from '$lib';
 	import { onMount } from 'svelte';
 
 	onMount(() => {
-		initMaps();
+		initMap();
 	});
 </script>
 

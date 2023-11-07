@@ -29,6 +29,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@googlemaps/js-api-loader": "^1.16.2"
+		"@googlemaps/js-api-loader": "^1.16.2",
+		"@types/google.maps": "^3.54.6"
 	}
 }

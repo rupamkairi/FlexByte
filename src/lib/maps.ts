@@ -6,13 +6,27 @@ export const loader = new Loader({
 	apiKey: 'AIzaSyBX63xfy8tGFKae5BpqANvuOZnPGzxnL8k'
 });
 
-export const GoogleMaps = await loader.importLibrary('maps');
-export const Maps = GoogleMaps.Map;
+declare global {
+	interface Window {
+		map: google.maps.Map;
+	}
+}
 
-var instance = null;
+export let GoogleMaps: google.maps.MapsLibrary;
+export let Map: typeof google.maps.Map;
+let instance: google.maps.Map | null = null;
 
-export function initMaps() {
-	instance = new Maps(document.getElementById('google-map') as HTMLElement, {
+export async function loadMap() {
+	GoogleMaps = await loader.importLibrary('maps');
+	Map = GoogleMaps.Map;
+}
+loadMap();
+
+export async function initMap() {
+	GoogleMaps = await loader.importLibrary('maps');
+	Map = GoogleMaps.Map;
+
+	instance = new Map(document.getElementById('google-map') as HTMLElement, {
 		center: { lat: 0, lng: 0 },
 		zoom: 14
 	});
