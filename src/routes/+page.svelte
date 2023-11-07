@@ -3,6 +3,10 @@
 	import GoogleMap from '../components/GoogleMap.svelte';
 </script>
 
+<head>
+	<title>Map Advertiser</title>
+</head>
+
 <div>
 	<Location />
 	<GoogleMap />

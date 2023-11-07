@@ -9,7 +9,7 @@ export function getGeoLocation() {
 					lng: position.coords.longitude
 				};
 
-				const map = window.map;
+				const { map } = window;
 
 				console.log(pos);
 				map.setCenter(pos);
