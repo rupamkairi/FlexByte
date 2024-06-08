@@ -41,10 +41,18 @@ export async function showMarker(_markers: any[] = []) {
 		});
 	} else {
 		console.log({ _markers });
+		const image = {
+			url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+			size: new google.maps.Size(20, 32),
+			origin: new google.maps.Point(0, 0),
+			anchor: new google.maps.Point(0, 32)
+		};
+
 		_markers.forEach((_marker, index) => {
 			markers.push(
 				new Marker({
 					position: _marker,
+					icon: image,
 					title: 'Ad ' + index
 				})
 			);

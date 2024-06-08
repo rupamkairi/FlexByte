@@ -1,4 +1,3 @@
-// place files you want to import through the `$lib` alias in this folder.
 import { Loader } from '@googlemaps/js-api-loader';
 
 export const loader = new Loader({
@@ -16,6 +15,7 @@ declare global {
 
 export let GoogleMaps: google.maps.MapsLibrary;
 export let Map: typeof google.maps.Map;
+
 let instance: google.maps.Map | null = null;
 
 export async function loadMap() {

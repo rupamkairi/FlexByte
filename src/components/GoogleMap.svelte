@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { initMap } from '$lib';
-	import { myCluster, showMarker, showYou } from '$lib/markers';
+	import { initMap, showMarker, showYou } from '$lib';
+	import { myCluster } from '$lib/markers';
 	import { onMount } from 'svelte';
 
 	onMount(async () => {
