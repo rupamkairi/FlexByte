@@ -9,6 +9,8 @@
 		SidebarWrapper
 	} from 'flowbite-svelte';
 	import { AngleDownOutline, AngleUpOutline, CogOutline } from 'flowbite-svelte-icons';
+	import { clerkUser } from '../../store/user';
+	import { company } from '../../store/company';
 
 	export let drawerHidden: boolean = false;
 
@@ -39,8 +41,7 @@
 			icon: null,
 			href: null,
 			children: {
-				Products: '/app/crud/products',
-				Users: '/app/crud/users'
+				Flexes: '/app/flexes'
 			}
 		}
 		// {
@@ -117,6 +118,9 @@
 				{/each}
 			</SidebarGroup>
 		</nav>
+		<br />
+		<p>{$company?.name}</p>
+		<p>{$clerkUser?.fullName}</p>
 	</SidebarWrapper>
 </Sidebar>
 

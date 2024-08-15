@@ -4,7 +4,7 @@ export const clerk = {
 };
 
 export const DATABASE_URL =
-	'postgres://avnadmin:AVNS_gRM6zll0MDoolWJ9MMC@flexbyte-rupamkairi.b.aivencloud.com:12691/defaultdb?sslmode=require';
+	'postgres://avnadmin:AVNS_gRM6zll0MDoolWJ9MMC@flexbyte-rupamkairi.b.aivencloud.com:12691/defaultdb';
 export const DATABASE_CA = `-----BEGIN CERTIFICATE-----
 MIIEQTCCAqmgAwIBAgIUETa35AjWqWIdvtZsh/i0gERThPQwDQYJKoZIhvcNAQEM
 BQAwOjE4MDYGA1UEAwwvNDJmNmQwZjktYjI3Ni00NDM2LTk1NGUtYzkzMWYzODdi

@@ -1,8 +1,23 @@
 <script>
+	import { clerk } from '$lib';
+	import { onMount } from 'svelte';
+	import { clerkUser, user } from '../../store/user';
 	import Navbar from './Navbar.svelte';
-
 	import Sidebar from './Sidebar.svelte';
+	import axios from 'axios';
+	import { company } from '../../store/company';
+
 	let drawerHidden = false;
+
+	onMount(async () => {
+		await clerk.load();
+		if (!clerk.user) return;
+		clerkUser.set(clerk.user);
+		const data = (await axios.post('/api/me', { clerkUserId: clerk.user.id })).data;
+		console.log(data);
+		user.set(data.user);
+		company.set(data.company);
+	});
 </script>
 
 <header

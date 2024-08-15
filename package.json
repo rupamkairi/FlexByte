@@ -2,6 +2,7 @@
 	"name": "mapadvertisers",
 	"version": "0.0.1",
 	"private": true,
+	"type": "module",
 	"scripts": {
 		"dev": "vite dev --host",
 		"build": "vite build",
@@ -38,14 +39,12 @@
 		"typescript": "^5.5.4",
 		"vite": "^4.5.3"
 	},
-	"type": "module",
 	"dependencies": {
 		"@clerk/clerk-js": "^5.14.1",
 		"@googlemaps/js-api-loader": "^1.16.8",
 		"@googlemaps/markerclusterer": "^2.5.3",
-		"@neondatabase/serverless": "^0.9.4",
 		"@paralleldrive/cuid2": "^2.2.2",
-		"@xata.io/client": "^0.0.0-next.v64f10283eb9a098c575590d3ea17600e350321c9",
+		"axios": "^1.7.4",
 		"drizzle-orm": "^0.33.0",
 		"pg": "^8.12.0",
 		"postgres": "^3.4.4"
