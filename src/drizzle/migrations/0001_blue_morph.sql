@@ -1,1 +1,0 @@
-ALTER TABLE `flexes` ADD `name` text;

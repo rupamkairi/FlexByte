@@ -1,8 +1,8 @@
-import { sqliteTable, text } from 'drizzle-orm/sqlite-core';
+import { integer, pgTable, serial, text } from 'drizzle-orm/pg-core';
 import { companiesTable } from './companies';
 
-export const usersTable = sqliteTable('users', {
-	id: text('id').primaryKey(),
+export const usersTable = pgTable('users', {
+	id: serial('id').primaryKey(),
 	clerkId: text('clerkId'),
-	companyId: text('companyId').references(() => companiesTable.id, { onDelete: 'cascade' })
+	companyId: integer('companyId').references(() => companiesTable.id, { onDelete: 'cascade' })
 });
