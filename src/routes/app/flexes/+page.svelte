@@ -1,11 +1,10 @@
 <script>
 	import axios from 'axios';
 	import { onMount } from 'svelte';
-	import FlexDetails from '../../../components/app/FlexDetails.svelte';
 	import FlexList from '../../../components/app/FlexList.svelte';
-	import { clerkUser, user } from '../../../store/user';
 	import { company } from '../../../store/company';
 	import { flexes } from '../../../store/flexes';
+	import { user } from '../../../store/user';
 
 	onMount(async () => {
 		company.subscribe(async () => {
@@ -18,7 +17,7 @@
 					}
 				})
 			).data;
-			console.log(data);
+			// console.log(data);
 			flexes.set(data.flexes);
 		});
 	});
@@ -27,15 +26,12 @@
 <head>
 	<title>FlexByte</title>
 </head>
-<body>
-	{#if !$flexes}
-		<div>Loading</div>
-	{:else}
-		<div class="container mx-auto m-4">
-			<p>Flexes</p>
-			<pre>{JSON.stringify($flexes, null, 2)}</pre>
-		</div>
-		<FlexDetails />
-		<FlexList />
-	{/if}
-</body>
+
+{#if !$flexes}
+	<div>Loading</div>
+{:else}
+	<div class="">
+		<p>Flexes</p>
+		<FlexList {flexes} />
+	</div>
+{/if}

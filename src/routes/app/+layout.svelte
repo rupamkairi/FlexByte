@@ -27,7 +27,9 @@
 </header>
 <div class="overflow-hidden lg:flex">
 	<Sidebar bind:drawerHidden />
-	<div class="relative h-full w-full overflow-y-auto lg:ml-64 pt-[70px]">
-		<slot />
+	<div class="relative h-full w-full overflow-y-auto lg:ml-64 pt-16">
+		<div class="max-w-screen-2xl mx-auto p-4">
+			<slot />
+		</div>
 	</div>
 </div>
