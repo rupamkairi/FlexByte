@@ -5,7 +5,7 @@
 	import { clerk } from '$lib';
 
 	onMount(async () => {
-		await clerk.load();
+		await clerk.load({ signInForceRedirectUrl: '/app', signInFallbackRedirectUrl: '/app' });
 		if (clerk.user) goto(routes.app.root, { replaceState: true });
 		clerk.openSignIn();
 	});

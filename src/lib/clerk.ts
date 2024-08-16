@@ -1,5 +1,4 @@
 import { Clerk } from '@clerk/clerk-js';
-import { clerk as clerkConfig } from '../config';
+import { PUBLIC_CLERK_PUB_KEY } from '$env/static/public';
 
-export const clerk = new Clerk(clerkConfig.pubKey);
-clerk.load();
+export const clerk = new Clerk(PUBLIC_CLERK_PUB_KEY);

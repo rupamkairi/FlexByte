@@ -1,8 +1,9 @@
 import { Loader } from '@googlemaps/js-api-loader';
+import { PUBLIC_GOOGLE_API } from '$env/static/public';
 
 export const loader = new Loader({
 	version: 'weekly',
-	apiKey: 'AIzaSyBX63xfy8tGFKae5BpqANvuOZnPGzxnL8k'
+	apiKey: PUBLIC_GOOGLE_API
 });
 
 const myLocation = { lat: 18.5303046, lng: 73.9120743 };

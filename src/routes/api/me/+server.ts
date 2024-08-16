@@ -6,8 +6,7 @@ import { companiesTable } from '../../../drizzle/schema/companies.js';
 
 export async function POST(event) {
 	const { clerkUserId } = await event.request.json();
-	console.log({ clerkUserId });
-
+	// console.log({ clerkUserId });
 	let u, c;
 	await db.transaction(async (tx) => {
 		[u] = await tx.select().from(usersTable).where(eq(usersTable.clerkId, clerkUserId));
