@@ -5,6 +5,11 @@ export const routes = {
 
 	app: {
 		root: '/app',
-		company: '/app/company'
+
+		company: '/app/company',
+
+		flexes: '/app/flexes',
+		createFlex: '/app/flexes/create',
+		editFlex: '/app/flexes/edit'
 	}
 };

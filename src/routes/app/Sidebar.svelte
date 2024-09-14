@@ -35,30 +35,20 @@
 		activeMainSidebar = navigation.to?.url.pathname ?? '';
 	});
 
-	let posts = [
+	let menus = [
 		{
 			name: 'Flexes',
 			icon: null,
-			href: null,
-			children: {
-				Flexes: '/app/flexes'
-			}
+			href: '/app/flexes'
+			// children: {
+			// 	Flexes: '/app/flexes'
+			// }
 		}
-		// {
-		// 	name: 'Pages',
-		// 	icon: FileChartBarSolid,
-		// 	children: {
-		// 		Pricing: '/app/pages/pricing',
-		// 		Maintenance: '/app/errors/400',
-		// 		'404 not found': '/app/errors/404',
-		// 		'500 server error': '/app/errors/500'
-		// 	}
-		// },
 	];
 
 	let links = [{ label: 'Settings', icon: CogOutline, href: '/app/settings' }];
 
-	let dropdowns = Object.fromEntries(Object.keys(posts).map((x) => [x, false]));
+	let dropdowns = Object.fromEntries(Object.keys(menus).map((x) => [x, false]));
 </script>
 
 <Sidebar
@@ -73,7 +63,7 @@
 	>
 		<nav class="divide-y divide-gray-200 dark:divide-gray-700">
 			<SidebarGroup ulClass={groupClass} class="mb-3">
-				{#each posts as { name, icon, children, href } (name)}
+				{#each menus as { name, icon, children, href } (name)}
 					{#if children}
 						<SidebarDropdownWrapper bind:isOpen={dropdowns[name]} label={name} class="pr-3">
 							<AngleDownOutline slot="arrowdown" strokeWidth="3.3" size="sm" />

@@ -5,6 +5,8 @@
 	import { company } from '../../../store/company';
 	import { flexes } from '../../../store/flexes';
 	import { user } from '../../../store/user';
+	import { Button } from 'flowbite-svelte';
+	import { routes } from '../../../routes';
 
 	onMount(async () => {
 		company.subscribe(async () => {
@@ -31,7 +33,10 @@
 	<div>Loading</div>
 {:else}
 	<div class="">
-		<p>Flexes</p>
+		<div class="flex justify-between">
+			<h2 class="text-2xl font-bold">Flexes</h2>
+			<Button href={routes.app.createFlex} color="primary" outline>Create</Button>
+		</div>
 		<FlexList {flexes} />
 	</div>
 {/if}
