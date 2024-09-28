@@ -6,7 +6,7 @@
 	import { flexes } from '../../../store/flexes';
 	import { user } from '../../../store/user';
 	import { Button } from 'flowbite-svelte';
-	import { routes } from '../../../routes';
+	import { routes } from '../../../constants/routes';
 
 	onMount(async () => {
 		company.subscribe(async () => {

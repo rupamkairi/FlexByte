@@ -1,7 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import { routes } from '../../../routes';
+	import { routes } from '../../../constants/routes';
 	import { clerk } from '$lib';
 
 	onMount(async () => {

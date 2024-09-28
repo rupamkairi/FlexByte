@@ -4,10 +4,12 @@
 	import { superForm } from 'sveltekit-superforms';
 	import FlexForm from '../../../../components/ui/forms/FlexForm.svelte';
 	import SelectFlexType from '../../../../components/ui/forms/SelectFlexType.svelte';
+	import { init } from '$/utils/init';
 
 	export let data;
-
 	const { form } = superForm(data.form);
+
+	init();
 
 	function submitCreateFlex() {
 		console.log($form);
