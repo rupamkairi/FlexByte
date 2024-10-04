@@ -11,3 +11,7 @@
 .h-screen-50 {
 	height: 50vh;
 }
+
+.field-content {
+	field-sizing: content;
+}

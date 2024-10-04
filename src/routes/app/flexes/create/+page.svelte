@@ -5,14 +5,27 @@
 	import FlexForm from '../../../../components/ui/forms/FlexForm.svelte';
 	import SelectFlexType from '../../../../components/ui/forms/SelectFlexType.svelte';
 	import { init } from '$/utils/init';
+	import axios from 'axios';
+	import { company } from '$/store/company';
+	import { user } from '$/store/user';
 
 	export let data;
 	const { form } = superForm(data.form);
 
 	init();
 
-	function submitCreateFlex() {
+	async function submitCreateFlex() {
+		$form.area = (+$form.width * +$form.height).toString();
 		console.log($form);
+
+		const data = (
+			await axios.post('/api/flexes', $form, {
+				headers: {
+					companyId: $company?.id,
+					userId: $user?.id
+				}
+			})
+		).data;
 	}
 </script>
 

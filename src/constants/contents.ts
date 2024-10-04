@@ -1,5 +1,4 @@
 export const placeholders = {
-	flexName: 'Bus Shelter on Main St.',
-
+	flexName: 'Flex name usually consist of Place & Type',
 	flexTypeSelect: 'Select a Flex Type'
 };

@@ -2,18 +2,7 @@
 	// import Notifications from '../utils/dashboard/NotificationList.svelte';
 	// import AppsMenu from '../utils/widgets/AppsMenu.svelte';
 	// import UserMenu from '../utils/widgets/UserMenu.svelte';
-	import {
-		DarkMode,
-		Dropdown,
-		DropdownItem,
-		NavBrand,
-		NavHamburger,
-		NavLi,
-		NavUl,
-		Navbar,
-		Search
-	} from 'flowbite-svelte';
-	import { ChevronDownOutline } from 'flowbite-svelte-icons';
+	import { NavBrand, NavHamburger, Navbar } from 'flowbite-svelte';
 	// import Users from '../data/u sers.json';
 
 	export let fluid = true;
@@ -22,7 +11,7 @@
 </script>
 
 <Navbar {fluid} class="text-black" color="default" let:NavContainer>
-	<NavContainer class="mb-px mt-px px-1" {fluid}>
+	<NavContainer class="flex px-1" {fluid}>
 		<NavHamburger
 			onClick={() => (drawerHidden = !drawerHidden)}
 			class="m-0 me-3 md:block lg:hidden"

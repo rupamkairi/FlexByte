@@ -1,5 +1,5 @@
-import { Loader } from '@googlemaps/js-api-loader';
 import { PUBLIC_GOOGLE_MAP_API, PUBLIC_GOOGLE_MAP_ID } from '$env/static/public';
+import { Loader } from '@googlemaps/js-api-loader';
 import { getGeoLocation } from './geolocation';
 
 export const loader = new Loader({
@@ -21,8 +21,7 @@ export type MapElement = google.maps.Map;
 export let MarkerLibrary: google.maps.MarkerLibrary;
 export type MarkerElement = google.maps.marker.AdvancedMarkerElement;
 
-// export let Map: MapElement;
-// export let Marker: MarkerElement;
+export type ClickEvent = google.maps.MapMouseEvent;
 
 let instance: google.maps.Map | null = null;
 
@@ -32,8 +31,6 @@ export async function loadMap() {
 }
 
 export async function initMap() {
-	// GoogleMaps = await loader.importLibrary('maps');
-	// Map = GoogleMaps.Map;
 	await loadMap();
 
 	const position = getGeoLocation();
@@ -48,10 +45,16 @@ export async function initMap() {
 		fullscreenControl: false,
 		streetViewControl: false,
 		mapTypeControl: false,
-		zoomControl: false
+		zoomControl: false,
+		draggableCursor: ''
 	});
 
 	window.map = instance;
+}
+
+export async function onMapClick(callback: (e: google.maps.MapMouseEvent) => void) {
+	if (!instance) return;
+	instance.addListener('click', callback);
 }
 
 export default instance;

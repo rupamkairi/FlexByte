@@ -1,0 +1,1 @@
+ALTER TABLE "flex_locations" ADD COLUMN "address" text;

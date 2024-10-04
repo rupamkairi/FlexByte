@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { initMap, map, showMe } from '$lib';
+	import { initMap, showMe } from '$lib';
 	import { onMount } from 'svelte';
 
 	onMount(async () => {
@@ -8,6 +8,4 @@
 	});
 </script>
 
-<div>
-	<div id="google-map" class="h-screen-50" />
-</div>
+<div id="google-map" class="rounded-lg h-screen-50" />
