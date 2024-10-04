@@ -1,6 +1,6 @@
-export { default as map } from './maps';
-export { loader, GoogleMaps, Map, loadMap, initMap } from './maps';
-export { Marker, loadMarker, showMarker, showYou } from './markers';
-export { getGeoLocation } from './geolocation';
+export { default as map } from './maps/maps';
+export { MapsLibrary, MarkerLibrary, loader, loadMap, initMap } from './maps/maps';
+export { showMarkers, showMe } from './maps/markers';
+export { getGeoLocation as getGeoLocation } from './maps/geolocation';
 
 export { clerk } from './clerk';

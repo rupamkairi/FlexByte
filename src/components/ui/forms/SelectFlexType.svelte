@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Label, Select } from 'flowbite-svelte';
-	import { placeholders } from '../../../constants/contents';
+	import { placeholders } from '$/constants/contents';
 	import { flexTypes } from '$/store/generics/flex-types';
 
 	export let value: number | null;
