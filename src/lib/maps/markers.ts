@@ -6,11 +6,22 @@ let me: MarkerElement;
 let markers: MarkerElement[] = [];
 let markerCluster: MarkerClusterer;
 
+const pinImg = document.createElement('img');
+pinImg.height = 32;
+pinImg.width = 32;
+pinImg.src = '/pin.png';
+
 export async function showMarkers(_markers: any[] = []) {
 	const { map } = window;
 
 	_markers.forEach((_marker, index) => {
-		markers.push(new MarkerLibrary.AdvancedMarkerElement({ position: _marker, map }));
+		markers.push(
+			new MarkerLibrary.AdvancedMarkerElement({
+				content: pinImg,
+				position: _marker,
+				map
+			})
+		);
 	});
 
 	markerCluster = new MarkerClusterer({ map, markers });

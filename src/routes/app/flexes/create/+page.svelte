@@ -1,13 +1,13 @@
 <script lang="ts">
+	import FlexForm from '$/components/ui/forms/FlexForm.svelte';
+	import SelectFlexType from '$/components/ui/forms/SelectFlexType.svelte';
+	import { company } from '$/store/company';
+	import { user } from '$/store/user';
+	import { init } from '$/utils/init';
+	import axios from 'axios';
 	import { Button, Card } from 'flowbite-svelte';
 	import { CheckOutline } from 'flowbite-svelte-icons';
 	import { superForm } from 'sveltekit-superforms';
-	import FlexForm from '../../../../components/ui/forms/FlexForm.svelte';
-	import SelectFlexType from '../../../../components/ui/forms/SelectFlexType.svelte';
-	import { init } from '$/utils/init';
-	import axios from 'axios';
-	import { company } from '$/store/company';
-	import { user } from '$/store/user';
 
 	export let data;
 	const { form } = superForm(data.form);
@@ -30,7 +30,7 @@
 </script>
 
 <head>
-	<title>FlexByte</title>
+	<title>Create Flex - FlexByte</title>
 </head>
 
 {#if false}
@@ -44,15 +44,18 @@
 				<CheckOutline class="w-4 h-4 ml-2" />
 			</Button>
 		</div>
+
 		<br />
 		<Card class="shadow-none max-w-full">
 			<SelectFlexType bind:value={$form.flexTypeId} />
 		</Card>
+
 		<br />
 		<Card class="max-w-full">
 			<FlexForm {form} />
 			<br />
 		</Card>
+
 		<br />
 		<!-- <pre>{JSON.stringify($form, null, 2)}</pre> -->
 	</div>

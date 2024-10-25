@@ -1,20 +1,23 @@
 <script lang="ts">
+	import { PUBLIC_GOOGLE_MAP_API } from '$env/static/public';
 	import type { ClickEvent } from '$lib';
-	import { initMap, onMapClick } from '$lib';
+	import { initMap, onMapClick, showMarkers } from '$lib';
+	import axios from 'axios';
 	import { Input, Label, Textarea } from 'flowbite-svelte';
 	import { onMount } from 'svelte';
+	import type { SuperFormData } from 'sveltekit-superforms/client';
 	import { placeholders } from '../../../constants/contents';
 	import FlexLocationGoogleMap from './FlexLocationGoogleMap.svelte';
-	import axios from 'axios';
-	import { PUBLIC_GOOGLE_MAP_API } from '$env/static/public';
+	import type { UpdateFlexSchemaFormData } from './schema/flex';
 
-	export let form;
+	export let form: SuperFormData<UpdateFlexSchemaFormData>;
 
 	onMount(async () => {
 		await initMap();
+
 		onMapClick(async (e: ClickEvent) => {
-			$form.lat = e.latLng?.lat();
-			$form.lng = e.latLng?.lng();
+			$form.lat = e.latLng?.lat()!;
+			$form.lng = e.latLng?.lng()!;
 
 			const res = await axios.get(
 				`https://maps.googleapis.com/maps/api/geocode/json?latlng=${$form.lat},${$form.lng}&result_type=street_address&key=${PUBLIC_GOOGLE_MAP_API}`
@@ -29,6 +32,13 @@
 			$form.address = results[0]?.formatted_address;
 		});
 	});
+
+	$: if ($form) {
+		if ($form.id) {
+			const marker = { lat: $form.lat, lng: $form.lng };
+			showMarkers([marker]);
+		}
+	}
 </script>
 
 <div>

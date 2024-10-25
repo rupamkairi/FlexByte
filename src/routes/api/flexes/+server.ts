@@ -3,7 +3,7 @@ import { db } from '../../../drizzle/db';
 import { flexesTable } from '../../../drizzle/schema';
 import { eq } from 'drizzle-orm';
 import { flexDetailsTable } from '$/drizzle/schema/flex_details';
-import { flexLocationssTable } from '$/drizzle/schema/flex_locations';
+import { flexLocationsTable } from '$/drizzle/schema/flex_locations';
 
 export async function GET(event) {
 	const companyId = event.request.headers.get('companyid');
@@ -32,14 +32,14 @@ export async function POST(event) {
 			.returning({ insertedId: flexDetailsTable.id });
 		fdId = fd.insertedId;
 		let [fl] = await tx
-			.insert(flexLocationssTable)
+			.insert(flexLocationsTable)
 			.values({
 				flexId: f.insertedId,
 				latitude: +data.lat,
 				longitude: +data.lng,
 				address: data.address
 			})
-			.returning({ insertedId: flexLocationssTable.id });
+			.returning({ insertedId: flexLocationsTable.id });
 		flId = fl.insertedId;
 	});
 
