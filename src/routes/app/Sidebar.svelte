@@ -43,6 +43,11 @@
 			// children: {
 			// 	Flexes: '/app/flexes'
 			// }
+		},
+		{
+			name: 'Company',
+			icon: null,
+			href: '/app/company'
 		}
 	];
 
@@ -59,9 +64,9 @@
 >
 	<h4 class="sr-only">Main menu</h4>
 	<SidebarWrapper
-		divClass="overflow-y-auto px-3 pt-16 lg:pt-0 h-full scrolling-touch max-w-2xs lg:h-[calc(100vh-4rem)] lg:block bg-white dark:bg-gray-800 lg:me-0 lg:sticky top-2"
+		divClass="overflow-y-auto px-3 pt-16 pb-6 lg:pt-0 h-full scrolling-touch max-w-2xs lg:h-[calc(100vh-4rem)] lg:block bg-white dark:bg-gray-800 lg:me-0 lg:sticky top-2"
 	>
-		<nav class="divide-y divide-gray-200 dark:divide-gray-700">
+		<nav class="h-full flex flex-col divide-y divide-gray-200 dark:divide-gray-700">
 			<SidebarGroup ulClass={groupClass} class="mb-3">
 				{#each menus as { name, icon, children, href } (name)}
 					{#if children}
@@ -93,6 +98,7 @@
 					{/if}
 				{/each}
 			</SidebarGroup>
+			<SidebarGroup class="flex-grow" />
 			<SidebarGroup ulClass={groupClass}>
 				{#each links as { label, href, icon } (label)}
 					<SidebarItem
@@ -106,11 +112,10 @@
 						<svelte:component this={icon} slot="icon" class={iconClass} />
 					</SidebarItem>
 				{/each}
+				<p>{$company?.name}</p>
+				<p>{$clerkUser?.fullName}</p>
 			</SidebarGroup>
 		</nav>
-		<br />
-		<p>{$company?.name}</p>
-		<p>{$clerkUser?.fullName}</p>
 	</SidebarWrapper>
 </Sidebar>
 

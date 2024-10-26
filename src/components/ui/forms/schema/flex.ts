@@ -12,7 +12,7 @@ export const createFlexSchema = z.object({
 });
 
 export const updateFlexSchema = createFlexSchema.extend({
-	id: z.number()
+	id: z.number().optional()
 });
 
 export type UpdateFlexSchemaFormData = z.infer<typeof updateFlexSchema>;

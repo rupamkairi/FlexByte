@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { PUBLIC_GOOGLE_MAP_API } from '$env/static/public';
 	import type { ClickEvent } from '$lib';
-	import { initMap, onMapClick, showMarkers } from '$lib';
+	import { initMap, onMapClick } from '$lib';
+	import { showMarker } from '$lib/maps/markers';
 	import axios from 'axios';
 	import { Input, Label, Textarea } from 'flowbite-svelte';
 	import { onMount } from 'svelte';
@@ -36,7 +37,7 @@
 	$: if ($form) {
 		if ($form.id) {
 			const marker = { lat: $form.lat, lng: $form.lng };
-			showMarkers([marker]);
+			showMarker(marker);
 		}
 	}
 </script>

@@ -11,6 +11,16 @@ pinImg.height = 32;
 pinImg.width = 32;
 pinImg.src = '/pin.png';
 
+export async function showMarker(_marker: any) {
+	const { map } = window;
+
+	new MarkerLibrary.AdvancedMarkerElement({
+		content: pinImg,
+		position: _marker,
+		map
+	});
+}
+
 export async function showMarkers(_markers: any[] = []) {
 	const { map } = window;
 

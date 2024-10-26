@@ -28,17 +28,15 @@
 <Table noborder shadow hoverable>
 	<TableHead>
 		{#each $table.getHeaderGroups() as headerGroup}
-			<tr>
-				{#each headerGroup.headers as header}
-					<TableHeadCell>
-						{#if !header.isPlaceholder}
-							<svelte:component
-								this={flexRender(header.column.columnDef.header, header.getContext())}
-							/>
-						{/if}
-					</TableHeadCell>
-				{/each}
-			</tr>
+			{#each headerGroup.headers as header}
+				<TableHeadCell>
+					{#if !header.isPlaceholder}
+						<svelte:component
+							this={flexRender(header.column.columnDef.header, header.getContext())}
+						/>
+					{/if}
+				</TableHeadCell>
+			{/each}
 		{/each}
 		<TableHeadCell />
 	</TableHead>
@@ -54,9 +52,6 @@
 					<a href={`/app/flexes/${row.original?.id}`}>
 						<EditOutline />
 					</a>
-					<!-- <a href="/tables">
-						<TrashBinOutline />
-					</a> -->
 				</TableBodyCell>
 			</TableBodyRow>
 		{/each}
