@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Location from '$/components/Location.svelte';
 	import { initMap, showMe } from '$lib';
 	import { onMount } from 'svelte';
 
@@ -6,15 +7,8 @@
 
 	onMount(async () => {
 		await initMap();
-		// await showMe();
-
-		// if (marker) {
-		// 	const { lat, lng } = marker;
-		// 	if (lat && lng) {
-		// 		console.log('show marker');
-		// 	}
-		// }
 	});
 </script>
 
+<Location />
 <div id="google-map" class="rounded-lg h-screen-50" />

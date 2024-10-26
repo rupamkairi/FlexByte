@@ -33,11 +33,11 @@ export async function loadMap() {
 export async function initMap() {
 	await loadMap();
 
-	const position = getGeoLocation();
+	// const position = getGeoLocation();
 	let LatLng = null;
-	if (position) {
-		LatLng = { lat: position.coords.latitude, lng: position.coords.longitude };
-	}
+	// if (position) {
+	// 	LatLng = { lat: position.coords.latitude, lng: position.coords.longitude };
+	// }
 
 	instance = new MapsLibrary.Map(document.getElementById('google-map') as HTMLElement, {
 		center: LatLng,
@@ -46,7 +46,9 @@ export async function initMap() {
 		streetViewControl: false,
 		mapTypeControl: false,
 		zoomControl: false,
-		draggableCursor: ''
+		draggableCursor: '',
+		zoom: 5,
+		disableDefaultUI: true
 	});
 
 	window.map = instance;

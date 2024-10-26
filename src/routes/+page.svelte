@@ -1,5 +1,6 @@
 <script>
-	import { createCollapsible, melt } from '@melt-ui/svelte';
+	import SearchShowcase from '$/components/search/SearchShowcase.svelte';
+	import { createCollapsible } from '@melt-ui/svelte';
 	const {
 		elements: { root, content, trigger },
 		states: { open }
@@ -16,8 +17,14 @@
 				<a href="/"> <h1>FlexByte</h1></a>
 			</div>
 			<div class="flex gap-2 items-center">
+				<a href="/explore">Explore</a>
 				<a href="/auth/login">Login</a>
 			</div>
 		</nav>
 	</header>
+	<main>
+		<div>
+			<SearchShowcase />
+		</div>
+	</main>
 </body>

@@ -38,7 +38,7 @@ export async function showMarkers(_markers: any[] = []) {
 }
 
 export async function showMe() {
-	const position = getGeoLocation();
+	const position = getGeoLocation({});
 	let me = [];
 	if (position) {
 		me.push({ lat: position.coords.latitude, lng: position.coords.longitude });
